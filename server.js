@@ -11,6 +11,11 @@ app.use(express.json());
         response.send(drivers);
     })
 
+    app.get("/api/teams", async (request, response) => {
+        let teams = await knex.select().table('teams');
+        response.send(teams);
+    })
+
 
     app.post("/api/drivers", async (request, response) => {
         try {
